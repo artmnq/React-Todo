@@ -1,0 +1,22 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid white;
+  border-radius: 15px;
+  padding: 25px;
+  transform: translateY(100%);
+  background-color: #212f55;
+  height: 120px;
+}
+
+.title {
+  font-size: 30px;
+  color: #f6c4ff;
+  margin: 0;
+}
+
+input {
+  background-color: #f6c4ff;
+}
