@@ -32,7 +32,7 @@ function LoginPage() {
       return;
     }
 
-    navigate("/todo", { state: { name } });
+    navigate("/React-todo/todo", { state: { name } });
   }
 
   return (

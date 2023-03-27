@@ -7,8 +7,8 @@ function App() {
   return (
     <div className={styles.main}>
       <Routes>
-        <Route path="/" element={<LoginPage />} />
-        <Route path="/todo" element={<TodoPage />} />
+        <Route path="/React-Todo/" element={<LoginPage />} />
+        <Route path="/React-Todo/todo" element={<TodoPage />} />
       </Routes>
     </div>
   );
