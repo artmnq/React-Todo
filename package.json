@@ -1,7 +1,7 @@
 {
   "name": "todolist",
   "version": "0.1.0",
-  "homepage": "http://artmnq.github.io/React-Todo",
+  "homepage": "https://artmnq.github.io/React-Todo",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
