@@ -1,9 +1,10 @@
+import React from "react";
 import { Routes, Route } from "react-router-dom";
 import styles from "./App.module.css";
-import LoginPage from "./pages/LoginPage/index";
-import TodoPage from "./pages/TodoPage/index";
+import LoginPage from "./pages/LoginPage/LoginPage.tsx";
+import TodoPage from "./pages/TodoPage/TodoPage.tsx";
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className={styles.main}>
       <Routes>
@@ -12,6 +13,6 @@ function App() {
       </Routes>
     </div>
   );
-}
+};
 
 export default App;

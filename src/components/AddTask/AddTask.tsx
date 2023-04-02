@@ -1,13 +1,13 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTodo } from "../../redux/reducer";
+import { addTodo } from "../../redux/reducer.ts";
 import styles from "./style.module.css";
 
 function AddTask() {
-  const [todo, setTodo] = useState("");
+  const [todo, setTodo] = useState<string>("");
   const dispatch = useDispatch();
 
-  function handleChange(event) {
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     setTodo(event.target.value);
   }
 

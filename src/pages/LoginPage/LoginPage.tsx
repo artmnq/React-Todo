@@ -1,10 +1,15 @@
-import { useState } from "react";
+import { useState, ChangeEvent, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./LoginPage.module.css";
-import Input from "../../components/Input";
-import Button from "../../components/Button";
+import Input from "../../components/Input/Input.tsx";
+import Button from "../../components/Button/Button.tsx";
 
-const state = {
+type StateType = {
+  name: string;
+  isEmptyField: boolean;
+};
+
+const state: StateType = {
   name: "",
   isEmptyField: false,
 };
@@ -14,16 +19,16 @@ function LoginPage() {
   const [isEmptyField, setIsEmptyField] = useState(state.isEmptyField);
   const navigate = useNavigate();
 
-  function handleChange(event) {
+  function handleChange(event: ChangeEvent<HTMLInputElement>) {
     setName(event.target.value);
     setIsEmptyField(false);
   }
 
-  function handleBlur(event) {
+  function handleBlur(event: ChangeEvent<HTMLInputElement>) {
     setName(event.target.value.trim());
   }
 
-  function handleSubmit(event) {
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     if (name.length === 0) {
@@ -32,7 +37,7 @@ function LoginPage() {
       return;
     }
 
-    navigate("/React-todo/todo", { state: { name } });
+    navigate("/React-Todo/todo", { state: { name } });
   }
 
   return (

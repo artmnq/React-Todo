@@ -1,30 +1,40 @@
 import { useState, useMemo, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { completeTodo, updateTodo, removeTodo } from "../../redux/reducer";
-import TodoItem from "../TodoItem";
+import { completeTodo, updateTodo, removeTodo } from "../../redux/reducer.ts";
+import TodoItem from "../TodoItem/TodoItem.tsx";
 import styles from "./style.module.css";
 
-function TodoList({ setTaskCount }) {
-  const [sort, setSort] = useState("active");
+interface Todo {
+  id: string;
+  title: string;
+  completed: boolean;
+}
+
+interface TodoListProps {
+  setTaskCount: (count: number) => void;
+}
+
+function TodoList({ setTaskCount }: TodoListProps) {
+  const [sort, setSort] = useState<string>("active");
   const dispatch = useDispatch();
-  const todos = useSelector((state) => state);
+  const todos = useSelector((state: Todo[]) => state);
 
   const handleRemove = useCallback(
-    (id) => {
+    (id: string) => {
       dispatch(removeTodo(id));
     },
     [dispatch]
   );
 
   const handleUpdate = useCallback(
-    (obj) => {
+    (obj: Todo) => {
       dispatch(updateTodo(obj));
     },
     [dispatch]
   );
 
   const handleComplete = useCallback(
-    (id) => {
+    (id: string) => {
       dispatch(completeTodo(id));
     },
     [dispatch]

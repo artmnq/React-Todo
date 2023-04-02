@@ -1,13 +1,17 @@
-import { useLocation } from "react-router";
+import { useLocation } from "react-router-dom";
 import { useState } from "react";
-import TodoList from "../../components/TodoList";
-import AddTask from "../../components/AddTask";
+import TodoList from "../../components/TodoList/TodoList.tsx";
+import AddTask from "../../components/AddTask/AddTask.tsx";
 
 import styles from "./TodoPage.module.css";
 
+type LocationState = {
+  name?: string;
+};
+
 function TodoPage() {
-  const { state } = useLocation();
-  const { name } = state || {};
+  const location = useLocation<LocationState>();
+  const { name } = location.state || {};
   const [taskCount, setTaskCount] = useState(0);
 
   return (
